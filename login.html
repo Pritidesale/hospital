@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    <style>
+        /* Basic CSS styling (you can expand on this) */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hospital Management System</h1>
+    
+    <!-- Patient Registration Form -->
+    <form id="patientForm">
+        <h2>Login Page</h2>
+        <label for="patientName">Name:</label>
+        <input type="text" id="patientName" name="patientName" required><br><br>
+        
+        <label for="patientAge">Age:</label>
+        <input type="number" id="patientAge" name="patientAge" required><br><br>
+        
+        <label for="patientGender">Gender:</label>
+        <select id="patientGender" name="patientGender" required>
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select><br><br>
+        
+        <label for="patientCondition">Condition:</label><br>
+        <textarea id="patientCondition" name="patientCondition" rows="4" cols="50" required></textarea><br><br>
+        
+        <button type="submit" class="button">Register Patient</button>
+    </form>
+    
+    <!-- List of Patients -->
+    <h2>List of Patients</h2>
+    <table id="patientList">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Condition</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Patient data will be dynamically populated here -->
+        </tbody>
+    </table>
+
+    <!-- JavaScript for handling form submission and dynamic patient list -->
+    <script>
+        // JavaScript code would go here for handling form submission, fetching data, etc.
+        // Example:
+        document.getElementById('patientForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            // Code to handle form submission, e.g., fetching values and adding a new row to the patient list table
+            var patientName = document.getElementById('patientName').value;
+            var patientAge = document.getElementById('patientAge').value;
+            var patientGender = document.getElementById('patientGender').value;
+            var patientCondition = document.getElementById('patientCondition').value;
+            
+            // Append new row to the table
+            var table = document.getElementById('patientList').getElementsByTagName('tbody')[0];
+            var newRow = table.insertRow();
+            
+            // Clear the form fields
+            document.getElementById('patientForm').reset();
+        });
+    </script>
+</body>
+</html>
